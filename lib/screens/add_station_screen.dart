@@ -54,7 +54,7 @@ class _AddStationScreenState extends State<AddStationScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Estación agregada exitosamente')),
         );
-        Navigator.pop(context); // Vuelve a la pantalla anterior
+        Navigator.pop(context);
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error al agregar estación: $e')),
@@ -74,7 +74,7 @@ class _AddStationScreenState extends State<AddStationScreen> {
       appBar: AppBar(
         title: const Text('Agregar Estación'),
         centerTitle: true,
-        backgroundColor: Colors.white, // Azul oscuro
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(

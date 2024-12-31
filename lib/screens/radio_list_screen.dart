@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../models/radio_station.dart';
 import 'radio_screen.dart';
-import 'add_station_screen.dart'; // Importa la pantalla de agregar estación
+import 'add_station_screen.dart';
 
 class RadioListScreen extends StatefulWidget {
   @override
@@ -44,12 +44,11 @@ class _RadioListScreenState extends State<RadioListScreen> {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddStationScreen(), // Navega a la pantalla de agregar estación
+        builder: (context) => AddStationScreen(),
       ),
     );
 
     if (result == true) {
-      // Si la pantalla de agregar estación devuelve `true`, actualiza la lista
       _fetchStations();
     }
   }
@@ -96,8 +95,8 @@ class _RadioListScreenState extends State<RadioListScreen> {
                     borderRadius: BorderRadius.circular(15),
                     gradient: const LinearGradient(
                       colors: [
-                        Color(0xFF2C3E50), // Azul oscuro
-                        Color(0xFF4CA1AF), // Azul claro
+                        Color(0xFF2C3E50),
+                        Color(0xFF4CA1AF),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,

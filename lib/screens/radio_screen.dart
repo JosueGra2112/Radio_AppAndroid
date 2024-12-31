@@ -14,14 +14,14 @@ class RadioScreen extends StatefulWidget {
 
 class _RadioScreenState extends State<RadioScreen> {
   late AudioPlayer _audioPlayer;
-  late bool _isFavorite; // Inicializa el estado favorito
+  late bool _isFavorite;
   final ApiService _apiService = ApiService();
 
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-    _isFavorite = widget.station.isFavorite; // Sincroniza el estado inicial con la estación
+    _isFavorite = widget.station.isFavorite;
   }
 
   @override
@@ -32,7 +32,7 @@ class _RadioScreenState extends State<RadioScreen> {
 
   Future<void> _toggleFavorite() async {
     setState(() {
-      _isFavorite = !_isFavorite; // Cambia el estado local inmediatamente
+      _isFavorite = !_isFavorite;
     });
 
     try {
@@ -46,7 +46,7 @@ class _RadioScreenState extends State<RadioScreen> {
       );
     } catch (e) {
       setState(() {
-        _isFavorite = !_isFavorite; // Revertir estado si ocurre un error
+        _isFavorite = !_isFavorite;
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error al actualizar favorito: $e')),
@@ -101,8 +101,8 @@ class _RadioScreenState extends State<RadioScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF2C3E50), // Azul oscuro
-                Color(0xFF4CA1AF), // Azul claro
+                Color(0xFF2C3E50),
+                Color(0xFF4CA1AF),
               ],
             ),
           ),
@@ -111,7 +111,7 @@ class _RadioScreenState extends State<RadioScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(20), // Bordes redondeados
+                  borderRadius: BorderRadius.circular(20),
                   child: Image.network(
                     widget.station.image,
                     height: 200,
